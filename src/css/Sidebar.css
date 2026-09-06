@@ -1,0 +1,117 @@
+.sidebar {
+  width: 220px;
+  min-height: 100vh;
+  background: #ffffff;
+  border-right: 1px solid #eef0f3;
+  padding: 20px 16px;
+  box-sizing: border-box;
+  font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+/* Logo */
+.sidebar__logo {
+  display: flex;
+  justify-content: center;   /* center f wast */
+  padding: 4px 0 20px;
+}
+
+.sidebar__logo-img {
+  width: 150px;
+  height: auto;
+  display: block;
+  margin-left: 5px;  
+  margin-right: 5px;
+}
+
+/* Bouton Accueil */
+.sidebar__home-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #ffb700;
+  color: #16213e;
+  border: none;
+  border-radius: 10px;
+  padding: 11px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: filter 0.15s ease;
+}
+
+.sidebar__home-btn:hover {
+  filter: brightness(0.96);
+}
+
+/* Label section */
+.sidebar__section-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: #b3b8c2;
+  text-transform: uppercase;
+  margin: 0 0 8px 6px;
+}
+
+/* Navigation */
+.sidebar__nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.sidebar__nav-item {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  border: none;
+  border-radius: 8px;
+  padding: 9px 10px;
+  font-size: 14px;
+  color: #37415a;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s ease;
+}
+
+.sidebar__nav-item:hover {
+  background: #f6f7f9;
+}
+
+.sidebar__nav-icon {
+  color: #6c63ff;
+  flex-shrink: 0;
+}
+
+.sidebar__nav-arrow {
+  margin-left: auto;
+  color: #b3b8c2;
+}
+
+.sidebar__badge {
+  margin-left: auto;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ff4d4f;
+  display: inline-block;
+}
+.sidebar {
+  width: 250px;
+  flex-shrink: 0;
+  background-color: #ffffff;
+  border-right: 1px solid #f3f4f6;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  overflow-y: auto;
+}
