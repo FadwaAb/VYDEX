@@ -164,8 +164,8 @@
 }
 
 .product-card__img {
-  max-width: 92%;
-  max-height: 92%;
+  max-width: 120%;
+  max-height: 120%;
   object-fit: contain;
   filter: drop-shadow(0 12px 14px rgba(17, 26, 53, 0.12));
   transition: transform 0.35s ease;
