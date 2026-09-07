@@ -1,4 +1,5 @@
-import { Hexagon, Home, Laptop, Monitor, Headphones, Cpu, MonitorCheck, HardDrive, Mouse, Wifi, Gamepad2, Tag, ChevronRight } from "lucide-react";
+import { useState } from "react";
+import { Hexagon, Home, Laptop, Monitor, Headphones, Cpu, MonitorCheck, HardDrive, Mouse, Wifi, Gamepad2, Tag, ChevronRight, Menu, X } from "lucide-react";
 import '../css/Sidebar.css';
 import logo from "../assets/logo1.png";
 
@@ -15,42 +16,50 @@ const categories = [
   { label: "Gaming", icon: Gamepad2 },
 ];
 
-export default function Sidebar() {
+export default function Sidebar({ isOpen, onClose }) {
   return (
-    <aside className="sidebar">
-      <div className="sidebar__logo">
-        <img src={logo} alt="Vydex" className="sidebar__logo-img" />
-      </div>
+    <>
+      {/* Overlay pour mobile */}
+      <div 
+        className={`sidebar__overlay ${isOpen ? 'sidebar__overlay--visible' : ''}`}
+        onClick={onClose}
+      />
 
-      <button className="sidebar__home-btn" type="button">
-        <Home size={18} />
-        <span>Accueil</span>
-      </button>
+      <aside className={`sidebar ${isOpen ? 'sidebar--open' : ''}`}>
+        <div className="sidebar__logo">
+          <img src={logo} alt="Vydex" className="sidebar__logo-img" />
+        </div>
 
-      <p className="sidebar__section-label">Catégories</p>
+        <button className="sidebar__home-btn" type="button">
+          <Home size={18} />
+          <span>Accueil</span>
+        </button>
 
-      <nav className="sidebar__nav">
-        <ul>
-          {categories.map(({ label, icon: Icon, hasArrow }) => (
-            <li key={label}>
+        <p className="sidebar__section-label">Catégories</p>
+
+        <nav className="sidebar__nav">
+          <ul>
+            {categories.map(({ label, icon: Icon, hasArrow }) => (
+              <li key={label}>
+                <button type="button" className="sidebar__nav-item">
+                  <Icon size={18} className="sidebar__nav-icon" />
+                  <span>{label}</span>
+                  {hasArrow && (
+                    <ChevronRight size={16} className="sidebar__nav-arrow" />
+                  )}
+                </button>
+              </li>
+            ))}
+            <li>
               <button type="button" className="sidebar__nav-item">
-                <Icon size={18} className="sidebar__nav-icon" />
-                <span>{label}</span>
-                {hasArrow && (
-                  <ChevronRight size={16} className="sidebar__nav-arrow" />
-                )}
+                <Tag size={18} className="sidebar__nav-icon" />
+                <span>Promotions</span>
+                <span className="sidebar__badge" />
               </button>
             </li>
-          ))}
-          <li>
-            <button type="button" className="sidebar__nav-item">
-              <Tag size={18} className="sidebar__nav-icon" />
-              <span>Promotions</span>
-              <span className="sidebar__badge" />
-            </button>
-          </li>
-        </ul>
-      </nav>
-    </aside>
+          </ul>
+        </nav>
+      </aside>
+    </>
   );
 }

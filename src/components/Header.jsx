@@ -1,9 +1,18 @@
-import { Search, Heart, ShoppingCart } from "lucide-react";
+import { Search, Heart, ShoppingCart, Menu } from "lucide-react";
 import '../css/Header.css';
 
-export default function Header() {
+export default function Header({ onMenuClick }) {
   return (
     <header className="header">
+      <button 
+        type="button" 
+        className="header__menu-btn" 
+        onClick={onMenuClick}
+        aria-label="Ouvrir le menu"
+      >
+        <Menu size={22} />
+      </button>
+
       <div className="header__search">
         <input
           type="text"
