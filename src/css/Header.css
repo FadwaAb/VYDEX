@@ -1,4 +1,4 @@
-/* ========== HEADER.CSS CORRIGÉ ========== */
+/* ========== HEADER.CSS ========== */
 
 .header {
   display: flex;
@@ -8,8 +8,9 @@
   padding: 22px 32px;
   font-family: "Inter", "Segoe UI", sans-serif;
   background: #ffffff;
-  /* PAS de flex-wrap ici sur desktop */
 }
+
+/* ===== SEARCH ===== */
 
 .header__search {
   flex: 1;
@@ -53,6 +54,8 @@
   filter: brightness(0.96);
 }
 
+/* ===== ACTIONS ===== */
+
 .header__actions {
   display: flex;
   align-items: center;
@@ -75,7 +78,8 @@
   color: #6c63ff;
 }
 
-/* Bouton hamburger (caché sur desktop) */
+/* ===== MENU ===== */
+
 .header__menu-btn {
   display: none;
   background: transparent;
@@ -86,6 +90,7 @@
 }
 
 /* ===== TABLETTE ===== */
+
 @media screen and (max-width: 1023px) {
   .header {
     padding: 18px 24px;
@@ -102,11 +107,12 @@
 }
 
 /* ===== MOBILE ===== */
+
 @media screen and (max-width: 767px) {
   .header {
     padding: 14px 16px;
     gap: 12px;
-    flex-wrap: wrap;  /* ← wrap seulement en mobile */
+    flex-wrap: wrap;
   }
 
   .header__menu-btn {
@@ -146,6 +152,7 @@
 }
 
 /* ===== PETIT MOBILE ===== */
+
 @media screen and (max-width: 479px) {
   .header {
     padding: 12px 12px;
