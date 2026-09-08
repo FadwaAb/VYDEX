@@ -1,66 +1,71 @@
-/* ========== APP.CSS CORRIGÉ ========== */
+/* ========== GLOBAL ========== */
 
-* {
-  box-sizing: border-box;
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
   margin: 0;
-  padding: 0;
-}
-
-html, body {
-  overflow-x: hidden;
 }
 
 body {
-  font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
-  background: #ffffff;
-  color: #16213e;
+  overflow: hidden;
 }
 
-/* Layout principal */
+/* ========== APP ========== */
+
 .app {
-  min-height: 100vh;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
 }
+
+/* ========== MAIN LAYOUT ========== */
 
 .app-layout {
+  width: 100%;
+  height: 100vh;
+
   display: flex;
-  align-items: flex-start;   /* ← ضروري باش sticky ديال السايدبار يخدم */
+
+  overflow: hidden;
 }
+
+/* ========== MAIN AREA ========== */
 
 .main-wrapper {
   flex: 1;
   min-width: 0;
+  height: 100vh;
+
   display: flex;
   flex-direction: column;
+
+  overflow: hidden;
 }
+
+/* ========== HEADER ========== */
+
+.main-wrapper > .header {
+  flex-shrink: 0;
+}
+
+/* ========== SCROLLABLE CONTENT ========== */
 
 .page-content {
   flex: 1;
-  padding: 0 32px 32px;
+  min-height: 0;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  scroll-behavior: smooth;
 }
 
-/* ===== TABLETTE ===== */
-@media screen and (max-width: 1023px) {
-  .page-content {
-    padding: 0 24px 24px;
-  }
-}
+/* ========== MOBILE ========== */
 
-/* ===== MOBILE ===== */
 @media screen and (max-width: 767px) {
-  .app-layout {
-    position: relative;
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .page-content {
-    padding: 0 16px 24px;
-  }
-}
-
-/* ===== PETIT MOBILE ===== */
-@media screen and (max-width: 479px) {
-  .page-content {
-    padding: 0 12px 20px;
+  .main-wrapper {
+    width: 100%;
   }
 }

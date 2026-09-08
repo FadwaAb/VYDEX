@@ -14,13 +14,13 @@ import './App.css';
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
-  const openSidebar = () => setIsSidebarOpen(true);
   const closeSidebar = () => setIsSidebarOpen(false);
   const toggleSidebar = () => setIsSidebarOpen(prev => !prev);
 
-  // Blocki scroll ديال الصفحة ملي السايدبار محلول (mobile)
+  // Block scroll ديال الصفحة ملي السايدبار محلول فـ mobile
   useEffect(() => {
     document.body.style.overflow = isSidebarOpen ? 'hidden' : '';
+
     return () => {
       document.body.style.overflow = '';
     };
@@ -31,23 +31,39 @@ function App() {
 
       <div className="app-layout">
 
-        <Sidebar isOpen={isSidebarOpen} onClose={closeSidebar} />
+        <Sidebar
+          isOpen={isSidebarOpen}
+          onClose={closeSidebar}
+        />
 
         <div className="main-wrapper">
-          <Header onMenuClick={toggleSidebar} isSidebarOpen={isSidebarOpen} />
+
+          <Header
+            onMenuClick={toggleSidebar}
+            isSidebarOpen={isSidebarOpen}
+          />
 
           <main className="page-content">
+
             <HeroSection />
+
             <BestSellers />
+
             <PromoBanners />
+
             <TopCategories />
+
             <HowItWorks />
+
             <MapSection />
+
+            <Footer />
+
           </main>
+
         </div>
 
       </div>
-      <Footer />
 
     </div>
   );

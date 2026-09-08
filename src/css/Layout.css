@@ -1,20 +1,37 @@
-/* L-page kamla : column flex bach Footer yji t7t */
-.page {
+/* ========== LAYOUT.CSS ========== */
+
+.layout {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  overflow: hidden;
+}
+
+/* ===== RIGHT SIDE ===== */
+
+.layout__right {
+  flex: 1;
+  min-width: 0;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  min-height: 100vh; /* Kamal l-height dyal l-écran */
+  overflow: hidden;
 }
 
-/* L-partie l-foqania : row flex (Sidebar + Content) */
-.page__main {
-  display: flex;
-  flex: 1; /* Katkheddam l-espace lli ba9i */
-  align-items: flex-start; /* Mashi stretch, bach Sidebar ma yettawelch */
-}
+/* ===== MAIN CONTENT ===== */
 
-/* L-column dyal l-content */
-.page__content {
+.layout__content {
   flex: 1;
-  padding: 24px;
-  min-width: 0; /* Évite overflow */
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* ===== MOBILE ===== */
+
+@media screen and (max-width: 767px) {
+  .layout__right {
+    width: 100%;
+  }
 }
