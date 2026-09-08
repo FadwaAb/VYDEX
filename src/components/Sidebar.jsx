@@ -1,6 +1,10 @@
-import { useState } from "react";
-import { Hexagon, Home, Laptop, Monitor, Headphones, Cpu, MonitorCheck, HardDrive, Mouse, Wifi, Gamepad2, Tag, ChevronRight, Menu, X } from "lucide-react";
-import '../css/Sidebar.css';
+import { useEffect } from "react";
+import {
+  Home, Laptop, Monitor, Headphones, Cpu,
+  MonitorCheck, HardDrive, Mouse, Wifi,
+  Gamepad2, Tag, ChevronRight, X
+} from "lucide-react";
+import "../css/Sidebar.css";
 import logo from "../assets/logo1.png";
 
 const categories = [
@@ -17,15 +21,36 @@ const categories = [
 ];
 
 export default function Sidebar({ isOpen, onClose }) {
+  // Sedd bil Escape
+  useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === "Escape") onClose();
+    };
+    if (isOpen) {
+      window.addEventListener("keydown", handleEscape);
+    }
+    return () => window.removeEventListener("keydown", handleEscape);
+  }, [isOpen, onClose]);
+
   return (
     <>
-      {/* Overlay pour mobile */}
-      <div 
-        className={`sidebar__overlay ${isOpen ? 'sidebar__overlay--visible' : ''}`}
+      {/* Overlay (mobile) */}
+      <div
+        className={`sidebar__overlay ${isOpen ? "sidebar__overlay--visible" : ""}`}
         onClick={onClose}
       />
 
-      <aside className={`sidebar ${isOpen ? 'sidebar--open' : ''}`}>
+      <aside className={`sidebar ${isOpen ? "sidebar--open" : ""}`}>
+        {/* Zr X (mobile uniquement) */}
+        <button
+          type="button"
+          className="sidebar__close-btn"
+          onClick={onClose}
+          aria-label="Fermer le menu"
+        >
+          <X size={20} />
+        </button>
+
         <div className="sidebar__logo">
           <img src={logo} alt="Vydex" className="sidebar__logo-img" />
         </div>

@@ -1,4 +1,4 @@
-/* ========== SIDEBAR RESPONSIVE ========== */
+/* ========== SIDEBAR.CSS ========== */
 
 .sidebar {
   width: 250px;
@@ -9,7 +9,7 @@
   flex-direction: column;
   position: sticky;
   top: 0;
-  align-self: flex-start;  /* ← IMPORTANT : reste en haut dans flex */
+  align-self: flex-start;
   height: 100vh;
   overflow-y: auto;
   padding: 16px;
@@ -19,13 +19,28 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Logo */
+
+/* ===== ZR X (mobile) ===== */
+
+.sidebar__close-btn {
+  display: none;
+  position: absolute;
+  top: 18px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: #16213e;
+  padding: 6px;
+}
+
+/* ===== LOGO ===== */
+
 .sidebar__logo {
   display: flex;
   justify-content: center;
   padding: 4px 0 20px;
 }
-
 
 .sidebar__logo-img {
   width: 150px;
@@ -35,7 +50,8 @@
   margin-right: 5px;
 }
 
-/* Bouton Accueil */
+/* ===== BOUTON ACCUEIL ===== */
+
 .sidebar__home-btn {
   width: 100%;
   display: flex;
@@ -57,7 +73,8 @@
   filter: brightness(0.96);
 }
 
-/* Label section */
+/* ===== LABEL SECTION ===== */
+
 .sidebar__section-label {
   font-size: 11px;
   font-weight: 600;
@@ -67,7 +84,8 @@
   margin: 0 0 8px 6px;
 }
 
-/* Navigation */
+/* ===== NAVIGATION ===== */
+
 .sidebar__nav ul {
   list-style: none;
   margin: 0;
@@ -116,7 +134,8 @@
   display: inline-block;
 }
 
-/* ===== OVERLAY (mobile) ===== */
+/* ===== OVERLAY ===== */
+
 .sidebar__overlay {
   display: none;
   position: fixed;
@@ -133,6 +152,7 @@
 }
 
 /* ===== TABLETTE (768px - 1023px) ===== */
+
 @media screen and (max-width: 1023px) {
   .sidebar {
     width: 220px;
@@ -155,6 +175,7 @@
 }
 
 /* ===== MOBILE (< 768px) ===== */
+
 @media screen and (max-width: 767px) {
   .sidebar {
     position: fixed;
@@ -170,6 +191,12 @@
   .sidebar--open {
     transform: translateX(0);
     box-shadow: 4px 0 24px rgba(0, 0, 0, 0.15);
+  }
+
+  .sidebar__close-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .sidebar__logo-img {

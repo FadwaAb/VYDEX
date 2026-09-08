@@ -19,15 +19,11 @@ body {
 /* Layout principal */
 .app {
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
 }
 
 .app-layout {
   display: flex;
-  align-items: flex-start;      /* ← TRÈS IMPORTANT : tout commence en HAUT */
-  justify-content: flex-start;  /* ← aligné à gauche */
-  flex: 1;
+  align-items: flex-start;   /* ← ضروري باش sticky ديال السايدبار يخدم */
 }
 
 .main-wrapper {
